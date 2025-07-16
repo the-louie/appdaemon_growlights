@@ -67,17 +67,18 @@ grow_lights:
 
 ## Operation
 
-The app runs the following checks every 10 minutes **only during active hours**:
+The app runs the following checks every 10 minutes:
 
 1. Determines current season (summer vs other months)
 2. Checks if current time is within active hours
-3. Reads UV index from configured sensor
-4. Controls lights based on time and UV index conditions
+3. If outside active hours, ensures lights are OFF
+4. If inside active hours, reads UV index and controls lights accordingly
 
 **Performance Optimizations:**
 - Time strings are parsed once at startup for efficiency
-- UV checks are skipped outside of active hours
+- Single datetime call per check cycle
 - Minimal state tracking to reduce memory usage
+- Early returns prevent unnecessary processing
 
 ## Logging
 
