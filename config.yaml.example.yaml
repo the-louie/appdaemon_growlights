@@ -1,0 +1,24 @@
+# Grow Lights - Home Assistant AppDaemon Configuration
+# Copyright (c) 2025 the_louie
+
+grow_lights:
+  module: i1_growlights
+  class: GrowLights
+
+  # Time-based configuration
+  # Summer months (June-August): 06:00 to 18:00
+  # Other months: 09:00 to 15:00
+  off_season_start: "09:00"
+  off_season_end: "15:00"
+  on_season_start: "06:00"
+  on_season_end: "18:00"
+
+  # UV index configuration
+  # Lights turn off when UV index is 5 or above during active hours
+  uv_index_sensor: "sensor.ecowitt_uv"
+  uv_index_threshold: 5
+
+  # Growth light switches to control
+  switches:
+    - switch.vaxtlampa
+    - switch.vaxtlampa_fonster_vast
