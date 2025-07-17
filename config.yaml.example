@@ -20,5 +20,6 @@ grow_lights:
 
   # Growth light switches to control
   switches:
-    - switch.vaxtlampa
-    - switch.vaxtlampa_fonster_vast
+    - switch.growlight_1
+    - switch.growlight_2
+    - switch.growlight_3
